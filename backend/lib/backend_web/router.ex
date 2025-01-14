@@ -7,6 +7,7 @@ defmodule BackendWeb.Router do
 
   scope "/api", BackendWeb do
     pipe_through(:api)
+    get("/health-check", HealthCheckController, :index)
     get("/shader", ShaderController, :index)
   end
 
