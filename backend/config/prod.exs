@@ -13,5 +13,4 @@ config :backend, BackendWeb.Endpoint,
   check_origin: false,
   code_reloader: false,
   debug_errors: false,
-  secret_key_base: "nJZkH37wxAoSDPDKoO0Oy8kvY8wJx/HAY81UgUJVgWsFYgaM59OAo5Zav3wqlYg4",
   watchers: []
