@@ -15,7 +15,6 @@ export default function Home() {
   const handleInput = async () => {
     setMessages([...messages, `U:>${value}`, `T:>Thinking`]);
     const msgs = [...messages, `U:>${value}`];
-    console.log(msgs);
 
     try {
       const response = await fetch(`${SHADER_URL}?text=${value}`);
