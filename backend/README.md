@@ -7,7 +7,7 @@ This is the backend of Text2Shader, a web application that generates shaders fro
 1. Install Elixir and Phoenix. Follow the instructions [here](https://hexdocs.pm/phoenix/installation.html).
 
 2. Set these environment variables:
-    - `GOOGLE_GEMINI_API_KEY`: API key for Google Gemini.
+    - `GEMINI_API_KEY`: API key for Google Gemini.
     - `SECRET_KEY_BASE`: Secret key for Phoenix.
     - `MIX_ENV`: Environment for the application (e.g. `dev` or `prod`).
 
