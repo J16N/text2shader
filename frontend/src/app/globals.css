@@ -74,18 +74,20 @@ textarea {
   height: auto;
 }
 
-textarea::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0.3rem;
+  height: 0.3rem;
   background: hsla(0, 0%, 30%, 0.9);
+  border-radius: 1rem;
 }
 
-textarea::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: hsla(0, 0%, 100%, 0.7);
   border-radius: 0.5rem;
   transition: background 0.3s;
 }
 
-textarea::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: hsla(0, 0%, 80%, 0.7);
 }
 
