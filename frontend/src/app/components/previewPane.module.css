@@ -1,0 +1,123 @@
+.iframe {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    overflow-y: auto;
+}
+
+.previewPane {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.console {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: calc(100% - 1.9rem);
+}
+
+.consoleOpen {
+    top: calc(50% - 1.9rem);
+}
+
+.consoleOpen>.consoleHeader>button {
+    transform: rotateZ(180deg);
+}
+
+.consoleHeader {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
+    height: 2rem;
+    background-color: hsl(0, 10%, 23%);
+    column-gap: 0.7rem;
+}
+
+.consoleHeader>button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.consoleHeader>button:before {
+    content: "";
+    position: absolute;
+    width: 0.6rem;
+    height: 0.1rem;
+    background-color: white;
+    transform-origin: 0% 50%;
+    transform: rotate(-50deg) translateX(-0.1rem);
+    left: calc(50% - 0.3rem);
+    top: calc(50% + 0.1rem);
+}
+
+.consoleHeader>button:after {
+    content: "";
+    position: absolute;
+    width: 0.6rem;
+    height: 0.1rem;
+    background-color: white;
+    transform-origin: 100% 50%;
+    transform: rotate(50deg) translateX(0.1rem);
+    left: calc(50% - 0.3rem);
+    top: calc(50% + 0.1rem);
+}
+
+.consoleHeader>button:hover {
+    background: hsl(0, 19%, 16%);
+}
+
+.consoleHeader>button:active {
+    background: hsl(0, 19%, 13%);
+}
+
+.consoleHeader>div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.consoleHeader>div>span {
+    font-size: 0.8rem;
+    color: rgb(217, 94, 94);
+}
+
+.error>img {
+    width: 0.9rem;
+    height: 0.9rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.1rem;
+}
+
+.consoleBody {
+    width: 100%;
+    height: 13.5rem;
+    background: rgb(11, 21, 50);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    overflow-y: auto;
+}
+
+.errorMessage {
+    color: rgb(217, 94, 94);
+    width: 100%;
+    background: hsl(225, 64%, 18%);
+    padding: 0.3rem;
+    font-size: 0.9rem;
+}
