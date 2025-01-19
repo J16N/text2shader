@@ -8,6 +8,7 @@ This is the backend of Text2Shader, a web application that generates shaders fro
 
 2. Set these environment variables:
     - `GEMINI_API_KEY`: API key for Google Gemini.
+    - `CLAUDE_API_KEY`: API key for Claude.
     - `SECRET_KEY_BASE`: Secret key for Phoenix.
     - `MIX_ENV`: Environment for the application (e.g. `dev` or `prod`).
 
@@ -23,5 +24,6 @@ This is the backend of Text2Shader, a web application that generates shaders fro
 ## Endpoints
 Available endpoints are as follows:
 
-- `GET /api/shader?text=...`: Generate shader code from text description.
+- `GET /api/shader/gemini?text=...`: Generate shader code from text description using Gemini.
+- `GET /api/shader/claude?text=...`: Generate shader code from text description using Claude.
 - `GET /api/health-check`: Check the health of the server.
