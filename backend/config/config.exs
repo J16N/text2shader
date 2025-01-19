@@ -21,7 +21,9 @@ config :backend, BackendWeb.Endpoint,
   pubsub_server: Backend.PubSub,
   live_view: [signing_salt: "uIEs8Obp"],
   gemini_model: "gemini-1.5-flash",
-  gemini_url: "https://generativelanguage.googleapis.com/v1beta/models"
+  gemini_url: "https://generativelanguage.googleapis.com/v1beta/models",
+  claude_url: "https://api.anthropic.com/v1/messages",
+  claude_model: "claude-3-5-sonnet-20241022"
 
 # Configures Elixir's Logger
 config :logger, :console,
