@@ -1,4 +1,4 @@
-defmodule BackendWeb.ShaderController do
+defmodule BackendWeb.ShaderControllerGemini do
   use Phoenix.Controller, formats: [:json]
   require Logger
 
