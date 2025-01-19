@@ -14,8 +14,7 @@ config :backend, BackendWeb.Endpoint,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "nJZkH37wxAoSDPDKoO0Oy8kvY8wJx/HAY81UgUJVgWsFYgaM59OAo5Zav3wqlYg4",
-  watchers: [],
-  gemini_api_key: "PUT_YOUR_API_KEY_HERE"
+  watchers: []
 
 # ## SSL Support
 #
