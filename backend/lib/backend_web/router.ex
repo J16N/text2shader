@@ -8,7 +8,11 @@ defmodule BackendWeb.Router do
   scope "/api", BackendWeb do
     pipe_through(:api)
     get("/health-check", HealthCheckController, :index)
-    get("/shader", ShaderController, :index)
+
+    scope "/shader" do
+      get("/gemini", ShaderControllerGemini, :index)
+      get("/claude", ShaderControllerClaude, :index)
+    end
   end
 
   # Enable LiveDashboard in development
