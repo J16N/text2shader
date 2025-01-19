@@ -5,12 +5,8 @@ import Markdown from "react-markdown";
 import styles from "./botMessage.module.css";
 import PreviewPane from "./previewPane";
 
-export default function BotMessage({ children }: { children: string }) {
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-    const [preview, setPreview] = useState<boolean>(false);
-    const [errors, setErrors] = useState<string[]>([]);
-    const responses = children.split(/\n(?=```javascript|```json)/g);
-
+function decodeGemini(resp: string) {
+    const responses = resp.split(/\n(?=```javascript|```json)/g);
     const json = responses[2].trim();
     const libs = JSON.parse(json.slice(8, json.length - 3).replaceAll('\n', ''));
     const scripts = [];
@@ -77,6 +73,24 @@ export default function BotMessage({ children }: { children: string }) {
 </html>
 `;
 
+    return [responses[0], html];
+}
+
+function decodeClaude(resp: string) {
+    const responses = resp.split(/```\n\n/g);
+    const matches = responses[1].trim().match(/\<\!(?<=\<\!).*(?=<\/html>)<\/html>/gs);
+    console.log(matches);
+    const html = matches ? matches[0] : '';
+    console.log(html);
+    return [responses[0], html];
+}
+
+export default function BotMessage({ llm, children }: { llm: string, children: string }) {
+    const iframeRef = useRef<HTMLIFrameElement>(null);
+    const [preview, setPreview] = useState<boolean>(false);
+    const [errors, setErrors] = useState<string[]>([]);
+    const [glsl, html] = llm === "gemini" ? decodeGemini(children) : decodeClaude(children);
+
     const reloadIframe = () => {
         if (iframeRef.current) {
             iframeRef.current.srcdoc += "";
@@ -126,9 +140,8 @@ export default function BotMessage({ children }: { children: string }) {
                 </div>
             </div>
             <div className={`${styles.content} ${(preview ? styles.nonoverflow : "")}`}>
-                {!preview && <Markdown>{responses[0]}</Markdown>}
-                {preview && <PreviewPane props={{ html, ref: iframeRef, errors }}
-                />}
+                {!preview && <Markdown>{glsl}</Markdown>}
+                {preview && <PreviewPane html={html} ref={iframeRef} errors={errors} />}
             </div>
         </div >
     )
