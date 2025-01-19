@@ -32,12 +32,14 @@ defmodule BackendWeb.ShaderControllerClaude do
     }
   end
 
-  defp decode_response({:ok, {:error, _body}}) do
+  defp decode_response({:ok, {:error, body}}) do
+    Logger.info("Error: #{body}")
     %{status: "Error", message: "Failed to generate shader code"}
   end
 
   defp decode_response({:error, reason}) do
-    %{status: "Error", message: reason}
+    Logger.info("Error: #{reason}")
+    %{status: "Error", message: "Failed to generate shader code"}
   end
 
   defp handle_request(url, {:ok, body}) do
